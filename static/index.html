@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="static/styles/main.css">
+  <title>Generated Image</title>
+</head>
+<body>
+
+  <h1>Storyteller</h1>
+   <div class="area-disp">
+
+    <div class="image-textarea-container">
+      <textarea id="storyInput1" onmouseup="getSelectedText1()" onkeyup="getSelectedText1()" class="story-text"></textarea>
+      <div id="imageContainer1" class="gen-image"></div>
+
+    </div>
+
+
+   <div>
+    <div class="illustrate-title">Illustrate your story</div>
+    <textarea type="text"  id="selectedWords1" placeholder="Enter prompt"  class="input-box"></textarea>
+  
+   <!-- Generate button -->
+   <div>
+    <button id="generateButton1">Generate Image</button>
+    <button id="extractButton1" onclick="extractKeywords(0)">Automatic Generation</button>
+   </div>
+
+
+      <!-- Image container -->
+      
+   </div>
+  </div>
+
+  <div class="area-disp">
+
+    <div class="image-textarea-container">
+      <textarea id="storyInput2" onmouseup="getSelectedText2()" onkeyup="getSelectedText2()" class="story-text"></textarea>
+      <div id="imageContainer2" class="gen-image"></div>
+    </div>
+   <div>
+    <div class="illustrate-title">Illustrate your story</div>
+    <textarea type="text"  id="selectedWords2" placeholder="Enter prompt"  class="input-box"></textarea>
+  
+   <!-- Generate button -->
+   <div>
+    <button id="generateButton2">Generate Image</button>
+    <button id="extractButton2" onclick="extractKeywords(1)">Automatic Generation</button>
+   </div>
+      
+   </div>
+  </div>
+
+  <div class="area-disp">
+
+    <div class="image-textarea-container">
+      <textarea id="storyInput3" onmouseup="getSelectedText3()" onkeyup="getSelectedText3()" class="story-text"></textarea>
+      <div id="imageContainer3" class="gen-image"></div>
+    </div>
+   <div>
+    <div class="illustrate-title">Illustrate your story</div>
+    <textarea type="text"  id="selectedWords3" placeholder="Enter prompt"  class="input-box"></textarea>
+  
+   <!-- Generate button -->
+   <div>
+    <button id="generateButton3">Generate Image</button>
+    <button id="extractButton3" onclick="extractKeywords(2)">Automatic Generation</button>
+   </div>
+      
+   </div>
+  </div>
+
+   
+   
+
+  
+  <!-- Include the JavaScript file -->
+  <script src="static/script.js"></script>
+
+</body>
+</html>

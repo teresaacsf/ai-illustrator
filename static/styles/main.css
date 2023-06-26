@@ -1,0 +1,49 @@
+.input-box{
+    width: 256px;
+    height: 5rem;
+    margin-bottom: 1rem;
+}
+
+.story-text{
+    width: 70%;
+    height: 10rem;
+}
+
+.area-disp{
+    display: flex;
+    column-gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.illustrate-title{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+
+.gen-image{
+    margin-top: 1rem;
+}
+
+.image-textarea-container {
+    position: relative;
+    width: 55rem;
+}
+
+
+.image-textarea-container textarea {
+    width: 80%;
+    height: 10rem;
+}
+
+
+.image-textarea-container img {
+    max-width: 100%;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+
+
