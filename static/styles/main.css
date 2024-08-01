@@ -1,49 +1,375 @@
-.input-box{
-    width: 256px;
-    height: 5rem;
-    margin-bottom: 1rem;
+.labels-disp {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  height: 5vh;
+  grid-column: 1 / span 2;
+  justify-items: stretch;
 }
 
-.story-text{
-    width: 70%;
-    height: 10rem;
-}
-
-.area-disp{
-    display: flex;
-    column-gap: 2rem;
-    margin-bottom: 1rem;
-}
-
-.illustrate-title{
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-}
-
-
-.gen-image{
-    margin-top: 1rem;
-}
-
-.image-textarea-container {
-    position: relative;
-    width: 55rem;
-}
-
-
-.image-textarea-container textarea {
-    width: 80%;
-    height: 10rem;
-}
-
-
-.image-textarea-container img {
-    max-width: 100%;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+.saved-images-label {
+  grid-column: 8;
+  font-size: 1rem;
 }
 
 
 
+/* Grid container for the main areas */
+.area-disp {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  grid-gap: 0rem; /* Gap between columns */
+  margin-bottom: 1rem;
+}
+
+/* Grid area for the story text input */
+.story-area {
+  grid-column: 1 / span 7; /* Spanning the first column */
+}
+
+.illustrate-box {
+  grid-column: 1 / span 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 1rem;
+  position: relative;
+}
+
+/* Grid area for the image description and buttons */
+.image-description {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1vw;
+  height: 224px;
+}
+
+/* Style for the input box and buttons */
+.input-box {
+  height: 224px;
+  padding: 0;
+  grid-column: 1 / span 3;
+  width: 30vw;
+}
+
+.generate-button {
+  width: 64px;
+  margin: 0;
+  padding: 1px;
+  height: 224px;
+}
+
+.automatic-button {
+  width: 224px;
+  margin: 0;
+  height: 64px;
+}
+
+/* Grid area for the automatic generate description section */
+.automatic-generate-disp {
+  display: flex;
+  grid-column: 1 / span 4;
+  margin-top: 2rem;
+  flex-direction: column;
+}
+
+.story-text {
+  height: 224px;
+  width: 25vw;
+  padding: 0;
+}
+
+.part-label {
+  grid-column: 1;
+}
+
+/* Additional styles for the grid layout */
+
+.title-disp {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: 94px;
+}
+
+.justify-end {
+  justify-self: end; /* Aligns this specific item to the end */
+}
+
+.story-title {
+  grid-column: 1 / span 2;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.margin-top{
+  margin-top: 8rem;
+}
+
+.newarea-button{
+  margin-bottom: 2rem;
+  margin-top: -1rem;
+}
+
+div,
+button{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.keywords-title {
+  font-weight: bold;
+  font-size: 3rem;
+}
+.illustrate-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.gen-image {
+  position: absolute;
+  right: 53vw;
+}
+
+.illustrate-disp {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* Two columns, first one is 2 times larger */
+  justify-items: center;
+}
+
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  border-top: 4px solid #3498db;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin-right: 9vw;
+  position: absolute;
+  right: -2vw;
+  top: 16vh;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Styles for the saved images container */
+#savedImagesContainer {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(64px, 1fr)
+  ); /* Automatically adding columns */
+  grid-gap: 10px; /* Gap between images */
+  align-items: flex-start;
+  grid-column: 1 / span 2; /* Spanning two columns */
+}
+.choose-style-button {
+  display: block;
+  height: 64px;
+  width: 224px;
+}
+
+/* Styles for the saved images container */
+.saved-image-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  /* Automatically adding columns */
+  grid-gap: 10px; /* Gap between images */
+  align-items: flex-start;
+  grid-column: 1 / span 2; /* Spanning two columns */
+}
+
+
+.saved-image-container img {
+  max-width: 64px;
+  max-height: 64px;
+}
+
+/* Other existing styles can remain as is */
+
+/* Styles for the modal containers */
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  max-width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  justify-items: center;
+  flex-direction: row;
+  column-gap: 2rem;
+}
+
+.modal-content p {
+  margin: 0;
+  padding: 5px 0;
+  font-size: 0.8rem;
+}
+
+.modal-story-keywords{
+  display: flex;
+  row-gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-image-download{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+button {
+  margin-top: 10px;
+}
+
+/* Style for the style gallery modal */
+.modal-container-gallery {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.modal-content-gallery {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.style-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.style-option {
+  margin: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.style-option img {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+img {
+  width: 224px;
+  height: 224px;
+}
+
+/* Add styles for the suggestion modal */
+.modal-container-suggestion {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
+.modal-content-suggestion {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  font-size: 16px;
+}
+
+.suggestion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#imageModal {
+  display: none;
+}
+
+#modalImage {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.suggestion-button {
+  padding: 0;
+  width: 96px;
+  position: absolute;
+  top: 184px;
+  right: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.generate-text {
+  font-size: 14px;
+  font-family: monospace;
+  margin-bottom: 1rem;
+  color: #636c72;
+}
+
+.image-container img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px; /* Add some space between the image and the download button */
+}
+
+.download-button {
+  display: block;
+  margin-top: 10px; /* Add some space between the image and the download button */
+  width: 100%;
+}

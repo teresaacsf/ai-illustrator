@@ -1,81 +1,110 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <link rel="stylesheet" href="static/styles/main.css">
-  <title>Generated Image</title>
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <title>Storyteller</title>
 </head>
+
 <body>
 
-  <h1>Storyteller</h1>
-   <div class="area-disp">
+  <div style="display: grid;">
 
-    <div class="image-textarea-container">
-      <textarea id="storyInput1" onmouseup="getSelectedText1()" onkeyup="getSelectedText1()" class="story-text"></textarea>
-      <div id="imageContainer1" class="gen-image"></div>
-
-    </div>
-
-
-   <div>
-    <div class="illustrate-title">Illustrate your story</div>
-    <textarea type="text"  id="selectedWords1" placeholder="Enter prompt"  class="input-box"></textarea>
-  
-   <!-- Generate button -->
-   <div>
-    <button id="generateButton1">Generate Image</button>
-    <button id="extractButton1" onclick="extractKeywords(0)">Automatic Generation</button>
-   </div>
-
-
-      <!-- Image container -->
-      
-   </div>
+  <div class="title-disp">
+    <div class="story-title">Story</div>
+    <div class="keywords-title">Keywords</div>
+    <button id="chooseStyleButton" class="choose-style-button justify-end">Choose Style: none</button>
   </div>
 
-  <div class="area-disp">
+  <div id="container">
+    <div id="area1" class="area-disp">
+      <div class="labels-disp">
+        <div class="part-label">Part 1</div>
+        <div class="saved-images-label">Click to see previous images</div>
+      </div>
 
-    <div class="image-textarea-container">
-      <textarea id="storyInput2" onmouseup="getSelectedText2()" onkeyup="getSelectedText2()" class="story-text"></textarea>
-      <div id="imageContainer2" class="gen-image"></div>
+      <div>
+        <textarea id="storyInput1" placeholder="Write your story here"  class="story-text"></textarea>
+        <div class="automatic-generate-disp">
+          <div class="generate-text">Click to generate image keywords</div>
+          <button id="extractButton1" class="automatic-button">Automatically Generate Description</button>
+        </div>
+      </div>
+
+      <div class="illustrate-disp">
+        <div id="imageContainer1" class="gen-image" onclick="openImageModal()"></div>
+        <div class="illustrate-box">
+          <textarea type="text" id="selectedWords1" placeholder="Write image keywords here" class="input-box"></textarea>
+          <button id="suggestionButton1" class="suggestion-button">Suggestions</button>
+          <button id="generateButton1" class="generate-button">Generate Image</button>
+        </div>
+
+        <div id="savedImagesContainer1"></div>
+      </div>
     </div>
-   <div>
-    <div class="illustrate-title">Illustrate your story</div>
-    <textarea type="text"  id="selectedWords2" placeholder="Enter prompt"  class="input-box"></textarea>
-  
-   <!-- Generate button -->
-   <div>
-    <button id="generateButton2">Generate Image</button>
-    <button id="extractButton2" onclick="extractKeywords(1)">Automatic Generation</button>
-   </div>
-      
-   </div>
   </div>
 
-  <div class="area-disp">
+  <button id="addNewAreaButton" class="automatic-button newarea-button justify-end" onclick="createNewArea()">Add New Story Part</button>
+</div>
 
-    <div class="image-textarea-container">
-      <textarea id="storyInput3" onmouseup="getSelectedText3()" onkeyup="getSelectedText3()" class="story-text"></textarea>
-      <div id="imageContainer3" class="gen-image"></div>
+  <div id="styleGalleryModal" class="modal-container-gallery">
+    <div class="modal-content-gallery">
+      <h2>Choose a Style</h2>
+      <div class="style-gallery">
+        <!-- Style 1 -->
+        <div class="style-option">
+          <img src="static/img/sun-watercolor.png" alt="Watercolor" data-style="Watercolor">
+          <p>Watercolor</p>
+        </div>
+        <!-- Style 2 -->
+        <div class="style-option">
+          <img src="static/img/sun-cartoon.png" alt="Cartoon" data-style="Cartoon">
+          <p>Cartoon</p>
+        </div>
+        <div class="style-option">
+          <img src="static/img/sun-ukiyo-e.png" alt="Ukiyo-e" data-style="Ukiyo-e">
+          <p>Ukiyo-e</p>
+        </div>
+        <div class="style-option">
+          <img src="static/img/sun-impressionism.png" alt="Impressionism" data-style="Impressionism">
+          <p>Impressionism</p>
+        </div>
+
+        <div class="style-option" onclick="handleStyleSelection(event)" data-style="none">
+          <p>None</p>
+        </div>
+        <!-- Add more style options as needed -->
+      </div>
     </div>
-   <div>
-    <div class="illustrate-title">Illustrate your story</div>
-    <textarea type="text"  id="selectedWords3" placeholder="Enter prompt"  class="input-box"></textarea>
-  
-   <!-- Generate button -->
-   <div>
-    <button id="generateButton3">Generate Image</button>
-    <button id="extractButton3" onclick="extractKeywords(2)">Automatic Generation</button>
-   </div>
-      
-   </div>
+  </div>
+  <button id="downloadButton">Save story</button>
+  <!-- <button id="clearCacheButton" class="automatic-button justify-end">Clear Cache</button> -->
+
+  <div id="imageModal" class="modal-container">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeImageModal()">&times;</span>
+      <img id="modalImage" src="" alt="Generated Image">
+    </div>
   </div>
 
-   
-   
 
-  
+  <div id="suggestionModal" class="modal-container-suggestion">
+    <div class="modal-content-suggestion">
+      <h2>Suggestions</h2>
+      <div class="suggestion-list">
+        <button class="suggestion-button-option" onclick="applySuggestion('darker atmosphere')">Darker Atmosphere</button>
+        <button class="suggestion-button-option" onclick="applySuggestion('cheerful')">Cheerful</button>
+        <button class="suggestion-button-option" onclick="applySuggestion('magical')">Magical</button>
+
+        <!-- Add more predefined suggestions as needed -->
+      </div>
+    </div>
+  </div>
+
   <!-- Include the JavaScript file -->
   <script src="static/script.js"></script>
 
 </body>
+
 </html>

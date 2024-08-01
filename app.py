@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.logger.setLevel(logging.DEBUG)
 
 api_host = 'https://api.stability.ai'
-api_key = ''
+api_key = 'sk-4dja7f8u4MPGDUqszTsSsIWIfnmZNPonoWtnUOxiQlAtzQWH'
 engine_id = 'stable-diffusion-xl-beta-v2-2-2'
 
 # Serve the static files (HTML and JavaScript)
@@ -39,14 +39,23 @@ def get_model_list():
 @app.route('/extract_keywords', methods=['POST'])
 def extract_keywords():
     doc = request.form.get('doc')
-    print(doc)
+    max_ngram_size = int(request.form.get('max_ngram_size')) 
+    min_char_length = 2
     
     # Perform keyword extraction using yake
-    kw_extractor = yake.KeywordExtractor()
+    kw_extractor = yake.KeywordExtractor(n=max_ngram_size)
     keywords = kw_extractor.extract_keywords(doc)
-    extracted_keywords = [kw[0] for kw in keywords]
 
-    return jsonify({"keywords": extracted_keywords}), 200
+    filtered_keywords = [kw[0] for kw in keywords if len(kw[0]) >= min_char_length]
+
+    # Check if each keyword is a subphrase of another keyword in the list
+    final_keywords = []
+    for kw in filtered_keywords:
+        is_subphrase = any((kw != k and kw in k) or (k != kw and k in kw and len(kw.split()) >= 3) for k in filtered_keywords)
+        if not is_subphrase:
+            final_keywords.append(kw)
+
+    return jsonify({"keywords": final_keywords}), 200
 
 
 
@@ -89,6 +98,7 @@ def generate_image():
     
     app.logger.debug(response.text)
     return jsonify({"error": "Failed to generate image"}), 500
+    
 
 
 
