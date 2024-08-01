@@ -2,6 +2,10 @@
 
 A web application built with Flask and JavaScript that allows users to illustrate their stories using the Stable Diffusion API. This project processes user-submitted stories to generate creative prompts through a keyword selection model and sends them to the Stable Diffusion model for illustration.
 
+## Live Demo
+You can access the live version of the application hosted on PythonAnywhere at [https://teresaacsf.pythonanywhere.com/](https://teresaacsf.pythonanywhere.com/).
+
+
 ## Table of Contents
 
 - [Features](#features)
