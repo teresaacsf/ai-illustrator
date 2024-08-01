@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.logger.setLevel(logging.DEBUG)
 
 api_host = 'https://api.stability.ai'
-api_key = 'sk-4dja7f8u4MPGDUqszTsSsIWIfnmZNPonoWtnUOxiQlAtzQWH'
+api_key = ''
 engine_id = 'stable-diffusion-xl-beta-v2-2-2'
 
 # Serve the static files (HTML and JavaScript)
