@@ -13,18 +13,21 @@ A web application built with Flask and JavaScript that allows users to illustrat
 - [Acknowledgements](#acknowledgements)
 
 ## Features
+**Story Creation:** Users can input and edit their stories using a text area.
 
-- **Automatic Keyword Extraction:**
-  - Utilizes the YAKE (Yet Another Keyword Extractor) algorithm to automatically generate keywords from user stories, simplifying the prompt creation process.
+**Automatic Keyword Generation:** Generate keywords for images related to the story content with a single click.
 
-- **Custom Prompt Creation:**
-  - Users can manually edit or create prompts based on the extracted keywords to tailor the generated images to their vision.
+**Image Generation:** Users can input keywords to generate images based on their stories.
 
-- **Stable Diffusion Integration:**
-  - Seamlessly connects with the Stable Diffusion API to generate high-quality illustrations based on user-defined prompts.
+**Style Selection:** Choose from a variety of artistic styles (e.g., Watercolor, Cartoon, Ukiyo-e, Impressionism) to customize illustrations.
 
-- **Dynamic Image Display:**
-  - Generated images are displayed in real-time below each story input area, providing immediate visual feedback for users.
+**Image Viewing:** Click on generated images to view them in a modal.
+
+**Save Functionality:** Users can save their stories for future reference.
+
+**Dynamic UI:** Add new story parts dynamically with an "Add New Story Part" button.
+
+**Suggestions Modal:** Offers predefined style suggestions to enhance the story's atmosphere.
 
 
 ## Technologies Used
